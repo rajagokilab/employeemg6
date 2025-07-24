@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="{{ url_for('add') }}" class="btn btn-success mb-3">Add Employee</a>
+<form method="get" class="mb-3">
+  <input name="department" placeholder="Filter by department">
+  <button class="btn btn-primary btn-sm">Filter</button>
+</form>
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th><th>Position</th><th>Department</th><th>Salary</th><th>Actions</th>
+  </tr>
+  {% for emp in employees %}
+  <tr>
+    <td>{{ emp.name }}</td>
+    <td>{{ emp.position }}</td>
+    <td>{{ emp.department }}</td>
+    <td>{{ emp.salary }}</td>
+    <td>
+      <a href="{{ url_for('edit', id=emp.id) }}" class="btn btn-warning btn-sm">Edit</a>
+      <a href="{{ url_for('delete', id=emp.id) }}" class="btn btn-danger btn-sm">Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

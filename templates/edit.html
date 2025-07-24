@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.name.label }} {{ form.name(class="form-control") }}
+    {{ form.position.label }} {{ form.position(class="form-control") }}
+    {{ form.department.label }} {{ form.department(class="form-control") }}
+    {{ form.salary.label }} {{ form.salary(class="form-control") }}
+    {{ form.submit(class="btn btn-primary mt-2") }}
+</form>
+{% endblock %}
